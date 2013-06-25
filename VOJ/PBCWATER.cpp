@@ -70,7 +70,6 @@ int main() {
 			}
 		}
 	}
-
 	int res = 0;
 	FOR(i, 1, m) FOR(j, 1, n) res += w[i][j] - h[i][j];
 	cout << res << endl;
