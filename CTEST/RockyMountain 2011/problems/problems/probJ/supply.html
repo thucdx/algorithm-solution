@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem J: Supply Mission</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+ --></style>
+</head><body>
+    <h1>Problem J: Supply Mission</h1>
+
+    <br/><b>Source:</b> <tt>supply.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>You are to fly a helicopter to bring supplies to a number of
+submarines that are currently moving across the ocean. You will be
+given the coordinates of the helicopter base and each submarine. Each
+submarine is travelling constantly at a heading and speed specified by
+the velocity vector (vx, vy), meaning that after 1 hour it would have
+travelled vx km in the x direction and vy km in the y direction (vx
+and vy may be negative). The length of the vector is the speed. The
+helicopter is capable of travelling at a constant speed in any
+direction (assume that acceleration and deceleration are
+instantaneous). The helicopter must land on each submarine at least
+once, and it takes 1 hour at each stop to unload the supplies and
+refuel. Each submarine rises to the surface at the appropriate landing
+time, and submerges once the helicopter leaves. You may assume that
+the velocity of each submarine is not affected by any change of its
+travelling depth. The helicopter can carry enough supplies for all
+submarines without having to return to the base. All coordinates have
+km as units, and all velocities and speeds have km/h as units.</p> 
+
+<p>Find the shortest time for the helicopter to bring supplies to each
+submarine from the base and return to its base.</p> 
+
+<h1>Input</h1>
+<p>The input consists of a number of cases. Each case starts with a
+line containing the integer N (1 <= N <= 8) specifying the number of
+submarines. The next N lines contain 4 integers separated by a space:
+the initial (x,y) coordinates of the i-th submarine and its velocity
+vector. The last line of each case contains 3 integers specifying the
+(x,y) coordinates of the helicopter base and the speed of the
+helicopter. The end of input is indicated by a case that starts with N
+= 0, and this last case should not be processed. All input integers
+have absolute value at most 1000. You may assume that the helicopter
+travels at a greater speed than every submarine. Note that the paths
+of the submarines may cross each other or even the helicopter base,
+but since they can adjust their depth there will be no collisions.</p> 
+
+<h1>Output</h1>
+<p>For each case, print its case number, a colon, followed by the minimum amount of time needed to complete the mission in the format:</p>
+<pre>
+Case a: b hour(s) c minute(s) d second(s)
+</pre>
+<p>where a, b, c, d are appropriate non-negative integers, and c and d are at most 59. The time should be rounded up to the next second.</p>
+
+<h1 class="break">Sample Input</h1>
+<pre>
+5
+1 0 0 0
+2 0 0 0
+3 0 0 0
+4 0 0 0
+5 0 0 0
+0 0 1
+3
+1 2 3 4
+2 2 40 23
+7 8 22 10
+0 0 50
+0
+</pre>
+
+<h1>Sample Output</h1>
+<pre>
+Case 1: 15 hour(s) 0 minute(s) 0 second(s)
+Case 2: 5 hour(s) 59 minute(s) 50 second(s)
+</pre>
+</body>
+</html>

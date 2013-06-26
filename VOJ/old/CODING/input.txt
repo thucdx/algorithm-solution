@@ -1,0 +1,6 @@
+4
+3 3 1
+abb 3
+baa 3
+aaa 4
+bbb 1

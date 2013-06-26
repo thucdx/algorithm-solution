@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+using namespace std;
+
+#define NMAX 1600
+
+struct vtcp{
+	int co1, co2, i;
+	vtcp() {}
+	vtcp(int c1, int c2, int ii){
+		if(c2 < 0){
+			c1 = -c1;
+			c2 = -c2;
+		}
+		co1 = c1;
+		co2 = c2;
+		i = ii;
+	}
+	bool operator <(vtcp other) const{
+		if(other.co2 == 0 && co2 != 0) return true;
+		if(other.co2 == 0 || co2 == 0) return false;
+		return co1*other.co2 < co2*other.co1;
+
+	}
+};
+int x[NMAX], y[NMAX], s[NMAX], rs = -1, N;
+vtcp vt[NMAX*NMAX];
+
+void enter() {
+	scanf("%d",&N);
+	for(int i = 1; i <= N; ++i){
+		scanf("%d%d%d",&x[i],&y[i],&s[i]);
+	}
+}
+
+void solve() {
+	for(int i = 1; i <= N; ++i){
+		int m = 0;
+		for(int j = i+1; j <= N; ++j){
+			vt[m] = vtcp(x[j]-x[i],y[j]-y[i],j);
+			m++;
+		}
+		sort(vt,vt+m);
+		int sum = 0;
+		for(int j = 0; j <= m-1; ++j){
+			sum += s[vt[j].i]*s[vt[j].i] + 5;
+			if(j == m-1 || vt[j] < vt[j+1]){
+
+				rs = max(rs,sum + s[i]*s[i]+5);
+				sum = 0;
+			}
+		}
+	}
+	printf("%d",rs);
+}
+int main() {
+	//freopen("in.txt","r", stdin);
+	enter();
+	solve();
+}
+

@@ -1,0 +1,44 @@
+Var N,M:Longint;
+    F,A:array[0..1001,0..1001] of longint;
+Procedure load;
+        var i,j:longint;
+        begin
+             readln(N,M);
+             For i:=1 to M do
+                begin
+                     for j:=1 to N do
+                        read(a[i,j]);
+                     readln;
+                end;
+             For i:=0 to N do F[0,i]:=0;
+             For i:=1 to M do
+                begin
+                      F[i,0]:=1000000000+1;
+                      F[i,N+1]:=1000000000+1;
+                end;
+        end;
+Function Min(x,y:longint):Longint;
+        begin
+             if x>y then Min:=y else Min:=x;
+        end;
+Procedure Optimize;
+        var i,j:longint;
+        begin
+             For i:=1 to M do 
+  begin
+    For j:=1 to N do 
+      F[i,j]:=Min(F[i-1,j],F[i,j-1])+a[i,j]; 
+    For j:=N downto 1 do 
+      F[i,j]:=Min(F[i,j],F[i,j+1]+a[i,j]); 
+  end;
+             j:=MaxLongint;
+             For i:=1 to N do
+                If F[M,i]<j then j:=F[M,i];
+             writeln(j);
+        end;
+ 
+ 
+Begin
+     Load;
+     Optimize;
+end.

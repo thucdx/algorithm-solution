@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem G: User Names</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+ --></style>
+</head><body>
+    <h1>Problem G: User Names</h1>
+
+    <br/><b>Source:</b> <tt>username.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>A university's computer system assigns user names according to the
+following set of rules:</p>
+<ol>
+<li>The maximum length of a username is MAXLEN characters. (The value of MAXLEN will be specified in the input for each problem instance.)</li>
+<li>The first character of the user name is the first letter of the person's first name, converted to lower case. Ignore apostrophes and hyphens here and in Step 3.</li>
+<li>Append as many letters of the person's last name as possible (converted to lower case, if necessary), without exceeding a total of MAXLEN characters. Starting with the first letter of the last name, append these letters in the order in whch they appear in the last name.</li>
+<li>If a user name assigned on basis of Rules 1 - 3 already exists in the database, break the tie as follows: append serial numbers 1 - 9, in that order, to the username from step 3, if that can be done without exceeding the limit of MAXLEN characters in the username. Otherwise, drop the last letter before appending the serial number.</li>
+<li>If a user name assigned on basis of Rules 1 - 4 already exists in the database, break the tie as follows: append serial numbers 10 - 99, in that order, to the username from step 3, if that can be done without exceeding the limit of MAXLEN characters in the username. Otherwise, drop the last letter or the last two letters (whichever is necessary) before appending the serial number.</li>
+<li>It is assumed that the above rules will avoid ties.</li>
+</ol>
+
+<h1>Input</h1>
+<p>The input will contain data for a number of test cases. The first line of each test case will contain two positive integers: the number of names and the value of MAXLEN (5 <= MAXLEN <= 80). This will be followed by the list of names. Each name will consist of at most 80 characters and will begin with the first name, followed by middle names, if any, and will conclude with the last name. A single blank space will separate first, middle, and last names. Any name can contain upper and lower case letters, hyphens, and apostrophes. A last name will contain at least two letters, other names will contain at least one letter (they could be just initials). There will be no more than 200 names in each case. The last test case will be followed by a line containing two zeros for the number of names and MAXLEN.</p>
+
+<h1>Output</h1>
+<p>For each case, the output will begin with a line containing the case number. This will be followed by the list of user names, one per line, in the same order as the corresponding names in the input.</p>
+
+<h1 class="break">Sample Input</h1>
+<pre>
+2 6
+Jenny Ax
+Christos H Papadimitriou
+11 8 
+Jean-Marie d'Arboux
+Jean-Marie A d'Arboux
+Jean-Marie B d'Arboux
+Jean-Marie C d'Arboux
+Jean-Marie D d'Arboux
+Jean-Marie D d'Arboux
+Jean-Marie F d'Arboux
+Jean-Marie G d'Arboux
+Jean-Marie H d'Arboux
+Jean-Marie I d'Arboux
+Jean-Marie J d'Arboux
+11 9 
+Jean-Marie d'Arboux
+Jean-Marie A d'Arboux
+Jean-Marie B d'Arboux
+Jean-Marie C d'Arboux
+Jean-Marie D d'Arboux
+Jean-Marie D d'Arboux
+Jean-Marie F d'Arboux
+Jean-Marie G d'Arboux
+Jean-Marie H d'Arboux
+Jean-Marie I d'Arboux
+Jean-Marie J d'Arboux
+0 0
+</pre>
+
+<h1 class="break">Sample Output</h1>
+<pre>
+Case 1
+jax
+cpapad
+Case 2
+jdarboux
+jdarbou1
+jdarbou2
+jdarbou3
+jdarbou4
+jdarbou5
+jdarbou6
+jdarbou7
+jdarbou8
+jdarbou9
+jdarbo10
+Case 3
+jdarboux
+jdarboux1
+jdarboux2
+jdarboux3
+jdarboux4
+jdarboux5
+jdarboux6
+jdarboux7
+jdarboux8
+jdarboux9
+jdarbou10
+</pre>
+</body>
+</html>

@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+#define maxInt 1000000000+1
+
+long long int c[1001][1001], F[1001][1001], N, M, i, j, kq;
+
+long long int min(long int a,long int b) {
+    if(a >= b) return b;
+    else return a;
+}
+int main()
+{
+   // freopen("in.txt","r",stdin);
+   // freopen("out.txt","w",stdout);
+
+    cin >> N >> M;
+
+	
+    for(i = 1; i <= M; i++){
+            for(int j = 1; j <= N; j++){
+                    cin >> c[i][j];
+                    //cout << "at " << i << " " << j << " is : " << c[i][j] << endl;
+            }
+    }
+	for(i = 0; i <= N; ++i) F[0][i] = 0;
+	for(i = 0; i <= M; ++i) {
+		F[i][0] = maxInt;
+		F[i][N+1] = maxInt;
+	}
+	kq = maxInt;
+	for(i = 1; i <= M; ++i) {
+         // cout << "xet i = " << i << endl;
+		for(j = 1; j <= N; ++j) {
+			F[i][j] = min(F[i-1][j], F[i][j-1]) + c[i][j];
+		}
+		for(j = N; j >= 1; --j) {
+			F[i][j]= min(F[i][j],F[i][j+1] + c[i][j]);
+			
+		}
+		
+	}
+    
+	
+	for(i = 1; i <= N; ++i) {
+          
+		if(kq > F[M][i]) kq = F[M][i];
+	}
+	cout << kq ;
+    
+}
+

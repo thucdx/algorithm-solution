@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem H: Citizenship Application</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+ --></style>
+</head><body>
+    <h1>Problem H: Citizenship Application</h1>
+
+    <br/><b>Source:</b> <tt>citi.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>In Canada, once you have landed as a permanent resident, you can
+apply for citizenship if you have lived in Canada for at least 1095
+days (approximately 3 years) in the 1460 days (approximately 4 years)
+immediately prior to the application for citizenship (i.e. the date of
+application is not counted). Any time travelling outside Canada is not
+counted as a day living in Canada. Furthermore, if you are already
+residing in Canada (e.g. to study) before landing as a permanent
+resident during the 1460-day period, that time in Canada before the
+landing date (up to 730 days) can be counted as half rounded down
+(e.g. if the waiting time was 101 days, that can be counted as 50
+days). Thus, the starting date of residence is counted as a half day
+if it occurs before the landing date (assuming that it is not more
+than 730 days before), or a full day if it coincides with the landing
+date.</p>
+
+<p>In this problem, you will be determining the first day on which an
+application for citizenship can be made.</p> 
+
+<h1>Input</h1>
+<p>The input consists of a number of cases. The first line of each
+case gives the starting date of residence in the country, and the
+second line gives the landing date as a permanent resident. The third
+line gives an integer N (0 <= N <= 100) indicating the number of
+travels outside of Canada. Each of the next N lines contains two dates
+separated by a space, indicating the start and end date (inclusive) of
+travel outside of Canada. That is, you are considered to be outside of
+Canada from the start date through the end date.</p>
+
+<p>You may assume that the starting date of residence is no later than
+the landing date. You may also assume that the start date of each
+travel is no later than the end date, and no travel outside of Canada
+will be longer than 200 days. Of course, you can assume that your
+trips do not include the starting date of residence and the landing
+date, and no two trips overlap. No trips take place before the
+starting date of residence. All dates are given in the form
+Month/Day/Year and are valid dates, and no dates in the input will be
+before January 1, 1980 or after December 31, 2020.</p>
+
+<h1>Output</h1>
+<p>For each case, print on one line the date of the first day (in the same format as the input) on which an application for citizenship can be made.</p>
+
+<h1 class="break">Sample Input</h1>
+<pre>
+1/1/2011
+9/1/2011
+0
+1/1/2011
+9/1/2011
+1
+10/1/2011 10/10/2011
+1/1/2011
+9/1/2011
+2
+2/1/2011 3/28/2011
+10/1/2011 10/10/2011
+1/1/2009
+1/1/2011
+0
+12/31/2020
+12/31/2020
+0
+</pre>
+
+<h1>Sample Output</h1>
+<pre>
+5/2/2014
+5/12/2014
+6/9/2014
+12/31/2012
+12/31/2023
+</pre>
+</body>
+</html>

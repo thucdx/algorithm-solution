@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem B: Shape Number</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+ --></style>
+</head><body>
+    <h1>Problem B: Shape Number</h1>
+
+    <br/><b>Source:</b> <tt>name.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>In computer vision, a chain code is a sequence of numbers
+representing directions when following the contour of an object. For
+example, the following figure shows the contour represented by the
+chain code 22234446466001207560 (starting at the upper-left
+corner).</p>
+
+<img src="shapenumber1.gif"/>
+
+<p>Two chain codes may represent the same shape if the shape has been
+rotated, or if a different starting point is chosen for the
+contour. To normalize the code for rotation, we can compute the first
+difference of the chain code instead. The first difference is obtained
+by counting the number of direction changes in counterclockwise
+direction between consecutive elements in the chain code (the last
+element is consecutive with the first one). In the above code, the
+first difference is</p>
+<pre>
+00110026202011676122
+</pre>
+Finally, to normalize for the starting point, we consider all cyclic rotations of the first difference and choose among them the lexicographically smallest such code. The resulting code is called the shape number.
+<pre>
+00110026202011676122
+01100262020116761220
+11002620201167612200
+...
+20011002620201167612
+</pre>
+
+<p>In this case, 00110026202011676122 is the shape number of the shape above.</p>
+<h1 class="break">Input</h1>
+<p>The input consists of a number of cases. The input of each case is given in one line, consisting of a chain code of a shape. The length of the chain code is at most 300,000, and all digits in the code are between 0 and 7 inclusive. The contour may intersect itself and needs not trace back to the starting point.</p>
+
+<h1>Output</h1>
+<p>For each case, print the resulting shape number after the normalizations discussed above are performed.</p>
+
+<h1>Sample Input</h1>
+<pre>
+22234446466001207560
+12075602223444646600
+</pre>
+
+<h1>Sample Output</h1>
+<pre>
+00110026202011676122
+00110026202011676122
+</pre>
+</body>
+</html>

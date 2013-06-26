@@ -1,0 +1,82 @@
+#ifndef ONLINE_JUDGE
+   freopen("input.txt", "rt", stdin);
+   freopen("output.txt", "wt", stdout);
+#endif
+#include <iostream>
+using namespace std;
+#define MAX 40
+
+int listX[MAX];
+int listY[MAX];
+int n;
+int sumX,sumY;
+int sl=0;
+int currentSumX=0,currentSumY=0;
+void swap(int x, int y){
+     int temp;
+     temp= listX[x];
+     listX[x]=listX[y];
+     listX[y]=temp;
+     temp= listY[x];
+     listY[x]=listY[y];
+     listY[y]=temp;
+}
+void quicksort(int start, int end){
+     int k,key,i,j;
+     if(start>=end ) return;
+     //start <end;
+     k=(start+end)/2;
+     key=listX[k];
+     swap(start, k);
+     i=start+1;
+     j=end;
+     while(i<=j){
+                 while(i<=end && listX[i]<=key)
+                 i++;
+                 while(j>=start+1&&listX[j]>key)
+                 j--;
+                 if(i<j) swap(i,j);
+                 
+     }
+     swap(start,j);
+     quicksort(start,j-1);
+     quicksort(j+1,end);
+}
+
+
+void attempt(int i){
+     int j;
+     for(j=i+1;j<n;j++)
+     {
+      if (currentSumX+listX[j]==sumX ) {
+                                    if(currentSumY+listY[j]==sumY)
+                                    sl++;
+         }
+         else {
+              
+              currentSumX+=listX[j];
+              currentSumY+=listY[j];
+              attempt(j);
+              currentSumX=currentSumX-listX[j];
+              currentSumY=currentSumY-listY[j];
+              }                
+     }
+}
+int main(){
+    int i=0;
+    //Input
+    cin>>n;
+    for(i=0;i<n;i++){
+                      cin >>listX[i];
+                      cin >>listY[i];
+                       }
+    cin >>sumX>>sumY;
+    
+    //process
+    //printlistX(listX,n);
+    quicksort(0,n-1);
+    //printlistX(listX,n);
+    attempt(-1);
+	cout<<sl;
+    
+}

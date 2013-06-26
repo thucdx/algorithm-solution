@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem I: Wealthy Family</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+ --></style>
+</head><body>
+    <h1>Problem I: Wealthy Family</h1>
+
+    <br/><b>Source:</b> <tt>family.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>While studying the history of royal families, you want to know how
+wealthy each family is. While you have various 'net worth' figures for
+each individual throughout history, this is complicated by double
+counting caused by inheritance. One way to estimate the wealth of a
+family is to sum up the net worth of a set of k people such that no
+one in the set is an ancestor of another in the set. The wealth of the
+family is the maximum sum achievable over all such sets of k
+people. Since historical records contain only the net worth of male
+family members, the family tree is a simple tree in which every male
+has exactly one father and a non-negative number of sons. You may
+assume that there is one person who is an ancestor of all other family
+members.</p>
+
+<h1>Input</h1>
+<p>The input consists of a number of cases. Each case starts with a
+line containing two integers separated by a space: N (1 <= N <=
+150,000), the number of people in the family, and k (1 <= k <= 300),
+the size of the set. The next N lines contain two non-negative
+integers separated by a space: the parent number and the net worth of
+person i (1 <= i <= N). Each person is identified by a number between
+1 and N, inclusive. There is exactly one person who has no parent in
+the historical records, and this will be indicated with a parent
+number of 0. The net worths are given in millions and each family
+member has a net worth of at least 1 million and at most 1
+billion.</p>
+
+<h1>Output</h1>
+<p>For each case, print the maximum sum (in millions) achievable over
+all sets of k people satisfying the constraints given above. If it is
+impossible to choose a set of k people without violating the
+constraints, print 'impossible' instead.</p>
+
+<h1 class="break">Sample Input</h1>
+<pre>
+5 3
+0 10
+1 15
+1 25
+1 35
+4 45
+3 3
+0 10
+1 10
+2 10
+</pre>
+
+<h1>Sample Output</h1>
+<pre>
+85
+impossible
+</pre>
+</body>
+</html>

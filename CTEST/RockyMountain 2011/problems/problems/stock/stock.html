@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <title>Problem C: Stock Prices</title>
+    <style type="text/css"><!--
+      html { margin-left: 4em; }
+      h1 { margin-left: -2em; font-size: 14pt; }
+      tt,pre { font-weight: bold; font-size: 12pt; }
+      .image { text-align: center; border: 1px solid black; margin: 1em; }
+      .left { float: left; }
+      .right { float: right; }
+      .break { page-break-before: always; }
+ --></style>
+</head><body>
+    <h1>Problem C: Stock Prices</h1>
+
+    <br/><b>Source:</b> <tt>stock.{c,cpp,java}</tt>
+    <br/><b>Input:</b> <tt>console {stdin,cin,System.in}</tt>
+    <br/><b>Output:</b> <tt>console {stdout,cout,System.out}</tt>
+
+<p>Buy low, sell high. That is what one should do to make profit in
+the stock market (we will ignore short selling here). Of course, no
+one can tell the price of a stock in the future, so it is difficult to
+know exactly when to buy and sell and how much profit one can make by
+repeatedly buying and selling a stock.</p>
+
+
+<p>But if you do have the history of price of a stock for the last n
+days, it is certainly possible to determine the maximum profit that
+could have been made. Instead, we are interested in finding the k1
+lowest prices and k2 highest prices in the history.</p>
+
+<h1>Input</h1>
+<p>The input consists of a number of cases. The first line of each
+case starts with positive integers n, k1, and k2 on a line (n <=
+1,000,000, k1 + k2 <= n, k1, k2 <= 100). The next line contains
+integers giving the prices of a stock in the last n days: the i-th
+integer (1 <= i <= n) gives the stock price on day i. The stock prices
+are non-negative. The input is terminated by n = k1 = k2 = 0, and that
+case should not be processed.</p> 
+
+<h1>Output</h1>
+<p>For each case, produce three lines of output. The first line
+contains the case number (starting from 1) on one line. The second
+line specifies the days on which the k1 lowest stock prices occur. The
+days are sorted in ascending order. The third line specifies the days
+on which the k2 highest stock prices occur, and the days sorted in
+descending order. The entries in each list should be separated by a
+single space. If there are multiple correct lists for the lowest
+prices, choose the lexicographically smallest list. If there are
+multiple correct lists for the highest prices, choose the
+lexicographically largest list.</p>
+
+<h1>Sample Input</h1>
+<pre>
+10 3 2
+1 2 3 4 5 6 7 8 9 10
+10 3 2
+10 9 8 7 6 5 4 3 2 1
+0 0 0
+</pre>
+
+<h1>Sample Output</h1>
+<pre>
+Case 1
+1 2 3
+10 9
+Case 2
+8 9 10
+2 1
+</pre>
+</body>
+</html>

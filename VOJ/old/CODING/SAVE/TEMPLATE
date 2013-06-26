@@ -1,0 +1,12 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <algorithm>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	freopen("input.txt", "rt", stdin);
+	freopen("output.txt", "wt", stdout);
+}

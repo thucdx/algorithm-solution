@@ -1,0 +1,86 @@
+//============================================================================
+// Name        : GPMB.cpp
+// Author      : ThucDX
+// Version     :
+// Copyright   : GPMB
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <stdio.h>
+#include <algorithm>
+using namespace std;
+#define INF 100000.0 //when
+#define NEG -10000.0
+int maxMoney=0;
+int nHouse;
+struct house{
+	int x,y,s;//xi,yi,si;
+}Houses[1501];
+struct noname{
+	float a;
+	int s;
+}nn[1501];
+
+inline void input();
+inline void calc();
+inline int cmp(const void *a, const void *b);
+int main() {
+	input();
+	calc();
+	return 0;
+}
+void input(){
+	int i;
+	scanf("%d",&nHouse);
+	for(i=0;i<nHouse;i++){
+		scanf("%d%d%d",&Houses[i].x,&Houses[i].y,&Houses[i].s);
+	}
+}
+int cmp(const void *a, const void *b){
+	noname *ia=(noname*)a;
+	noname *ib=(noname*)b;
+	if(ia->a >ib->a) return 1;
+	return -1;
+}
+void calc(){
+	int i,j;
+	int money=0;
+	for(i=0;i<nHouse;i++){
+		//Tao he so goc
+		for(j=0;j<nHouse;j++){
+			if(j!=i)
+			{
+				nn[j].s=Houses[j].s;
+				if(Houses[j].y==Houses[i].y) nn[j].a=INF;
+				else nn[j].a= (1.0*Houses[j].x-Houses[i].x)/((Houses[j].y-Houses[i].y));
+			}
+			else
+			{
+							nn[j].a=NEG;
+							nn[j].s=Houses[i].s;
+			}
+		}
+		//Qsort
+		qsort(nn,nHouse, sizeof(nn[0]),cmp);
+
+		//Tinh max;
+		int fix=(Houses[i].s *Houses[i].s)+5;
+		int b;
+		money=fix;
+		j=1;
+		while(j<nHouse){
+			b=nn[j].s;
+			money=fix+b*b+5;
+			while(nn[j].a==nn[j+1].a){
+				b=nn[j+1].s;
+				money+= b*b+5;
+				j++;
+				if(j>=nHouse) break;
+			}
+			if(money>maxMoney) maxMoney=money;
+			j++;
+		}
+	}
+	printf("%d\n",maxMoney);
+}
