@@ -1,9 +1,9 @@
 Archieve
 ========
 
-Collection of my own sourcecode for algorithm problems. It includes FOJ (FYT Online Judge), Codeforces, Topcoder, SPOJ, VOJ (Vietnam online judge).
+Collection of my own sourcecode for algorithm problems, including FOJ (FYT Online Judge), Topcoders, Codeforces, SPOJ, VOJ (Vietnam online judge).
 
-I think it may be helpful with someone.
+Using at your own risk!
 
-For any information, you can contact me at: thucdx31@gmail.com
+For more information, you can contact me at: thucdx31[at]gmail[dot]com
 
