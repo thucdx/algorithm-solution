@@ -65,7 +65,7 @@ int main() {
 				if (*it != result[i]) { isOk = false; break; }
 				++i;
 			}
-			if (isOk) cout << pos << endl;
+			if (isOk) cout << pos - (MESSAGE_LENGTH - 1) << endl;
 		}
 
 		++pos;
