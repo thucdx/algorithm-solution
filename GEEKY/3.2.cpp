@@ -22,8 +22,7 @@ using namespace std;
 
 typedef long long ll;
 
-string result = "there's no reality except the one contained within us. that's why so many people live an unreal life. they take images outside them for reality and never allow the world within them to assert itself.";
-string ACCEPT_SYMBOL = " .,\'";
+const string ACCEPT_SYMBOL = " .,\'";
 bool isOk[260];
 void init() {
 	FOR (c, 'a', 'z') isOk[c] = true;
@@ -32,6 +31,7 @@ void init() {
 	REP (i, ACCEPT_SYMBOL.length()) isOk[ACCEPT_SYMBOL[i]] = true;
 }
 
+string result = "there's no reality except the one contained within us. that's why so many people live an unreal life. they take images outside them for reality and never allow the world within them to assert itself.";
 #define MESSAGE_LENGTH 199
 
 int main() {
