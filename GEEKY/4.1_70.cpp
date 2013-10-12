@@ -616,6 +616,6 @@ int main() {
 
 	Killer k;
 	Deck enemy = Deck(json);
-//	Deck myDeck = k.findKillingDeck(enemy);
-//	cout << myDeck.toJSON() << endl;
+	Deck myDeck = k.findKillingDeck(enemy);
+	cout << myDeck.toJSON() << endl;
 }
