@@ -1,4 +1,4 @@
-Archieve
+Archive
 ========
 
 Collection of my own sourcecode for algorithm problems, including FOJ (FYT Online Judge), Topcoders, Codeforces, SPOJ, VOJ (Vietnam online judge).
